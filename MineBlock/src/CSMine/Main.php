@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener {
         public function giveMoneys($event, $player, $num) {
                 $block = $event->getBlock();
 +		$block->getLevel()->setBlock(new Vector3($block->getX(), $block->getY(), $block->getZ()), Block::get(14));
-		EconomyAPI::getInstance()->addMoney($player, num);
+		EconomyAPI::getInstance()->addMoney($player, $num);
                 $player->removeCreativeItem(Block::get(14));
 		$event->getPlayer()->sendMessage($num . "원이 지급되었습니다!");
         }
